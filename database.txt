@@ -1,0 +1,35 @@
+DROP TABLE clubs;
+DROP TABLE courtschedule;
+DROP TABLE members;
+CREATE TABLE clubs (
+	club_id serial PRIMARY KEY,
+	club varchar(100) NOT NULL,
+	first_name varchar(50),
+	last_name varchar(50),
+	email varchar(100) NOT NULL,
+	phone varchar(11) NOT NULL,
+	num_courts integer NOT NULL,
+	open_time integer,
+	close_time integer,
+	res_min interval,
+	res_max interval,
+	res_interval interval
+);
+CREATE TABLE courtschedule (
+	schedule_id serial PRIMARY KEY,
+	club_id integer references clubs(club_id),
+	start timestamp,
+	end timestamp,
+	member_id1 integer references members(member_id),
+	member_id2 integer references members(member_id),
+	member_id3 integer references members(member_id),
+	member_id4 integer references members(member_id)
+);
+CREATE TABLE members (
+	member_id serial PRIMARY KEY,
+	club_id integer references clubs(club_id),
+	first_name varchar(50) NOT NULL,
+	last_name varchar(50) NOT NULL,
+	email varchar(100),
+	phone varchar(11)
+);

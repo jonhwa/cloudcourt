@@ -1,12 +1,9 @@
 <?php 
-session_start();
-ob_start();
+function pg_connection_string_from_database_url() {
+	extract(parse_url($_ENV["DATABASE_URL"]));
+	return "user=$user password=$pass host=$host dbname=" . substr($path, 1);
+}
 
-$mysql_server = "localhost";
-$mysql_user = "precis53_hwaj";
-$mysql_password = "panda!!";
-$mysql_database = "precis53_roomiou"; //CORRECT THIS
-
-$connection = mysql_connect("$mysql_server","$mysql_user","$mysql_password") or die ("Unable to establish a DB connection");
-$db = mysql_select_db("$mysql_database") or die ("Unable to establish a DB connection");
+//Establish the connection
+$pg_conn = pg_connect(pg_connection_string_from_database_url());
 ?>
