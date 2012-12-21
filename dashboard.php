@@ -25,7 +25,16 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#calendar').fullCalendar({
-
+				height: 700,
+				defaultView: 'agendaWeek',
+				header: {
+					left: 'prev title',
+					center: 'agendaWeek,agendaDay',
+					right: 'today next'
+				},
+				allDaySlot: false,
+				defaultEventMinutes: 90,
+				
 			})
 		})
 	</script>
