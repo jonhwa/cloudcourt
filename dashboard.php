@@ -1,7 +1,7 @@
 <?php
 	include_once("php/connect.php");
 	if (!isset($_SESSION['user_id'])) {
-		header("Location: index.html");
+		header("Location: index.php");
 	}
 	$user = $_SESSION['user_id'];
 
@@ -39,7 +39,7 @@
 					<!-- CALENDAR TIMES -->
 				</div>
 				<?php
-					$week = 60 * 60 * 24 * 7;
+					/*$week = 60 * 60 * 24 * 7;
 					$query = "SELECT * FROM courtschedule WHERE timestart > '$week' ORDER BY timestart asc";
 					$result = mysql_query($query) or die(mysql_error());
 					while ($row = mysql_fetch_assoc($result)) {
@@ -57,7 +57,7 @@
 						echo '<div class="court">';
 						//Loop through all reservations for the court and print them out
 						echo '</div>';
-					}
+					}*/
 				?>
 			</div>
 		</div>
