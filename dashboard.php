@@ -50,7 +50,7 @@
 						//Create a "reservation" object and put it in an array, with the court number as the key
 					}
 
-					$query = "SELECT num_courts FROM users WHERE id='$user'";
+					$query = "SELECT num_courts FROM clubs WHERE id='$user'";
 					$result = mysql_query($query) or die(mysql_error());
 					$num_courts = mysql_fetch_assoc($result)['num_courts'];
 					for ($i = 0; $i < $num_courts; $i++) {

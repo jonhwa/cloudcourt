@@ -1,0 +1,12 @@
+DELETE FROM courtschedule;
+DELETE FROM members;
+DELETE FROM clubs;
+INSERT INTO clubs VALUES ('Gold Creek Tennis and Sports Club', 'admin', 'password', 'Tom', 'Hardwood', 'tomh@goldcreek.com', '4254981778', 6, 0600, 2200, @ 60 minutes, @ 120 minutes, @ 30 minutes);
+INSERT INTO clubs VALUES ('Levy Tennis Pavilion', 'admin2', 'password', 'Jonathan', 'Armstrong', 'jonathana@levytennis.com', '4258068391', 4, 0900, 2130, @ 60 minutes, @ 60 minutes, @ 30 minutes);
+INSERT INTO members VALUES (1, 'Jonathan', 'Hwa', 'jonhwa@gmail.com', '2063358793');
+INSERT INTO members VALUES (1, 'Gordon', 'Papik', 'gpapik@gmail.com', '1234567890');
+INSERT INTO members VALUES (1, 'Sam', 'McGuinness', 'sammcg@outlook.com', '3534567890');
+INSERT INTO members VALUES (2, 'Mitch', 'Barker', 'mitchbark@uw.edu', '3457891234');
+INSERT INTO members VALUES (2, 'Tony', 'Zhang', 'tyaozhang@gmail.com', '0921350394');
+INSERT INTO courtschedule VALUES (1, 2012-12-21 12:00:00 -8:00, 2012-12-21 13:00:00 -8:00, 1, 2);
+INSERT INTO courtschedule VALUES (2, 2012-12-21 14:30:00 -8:00, 2012-12-21 16:00:00 -8:00, 4, 5);

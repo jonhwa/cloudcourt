@@ -1,8 +1,21 @@
 <?php
 require("connect.php");
-require("passwordhash.php");
+//require("passwordhash.php");
 
-$errors = array();
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$query = "SELECT club_id, password FROM clubs WHERE username='$username'";
+$result = pg_query($pg_conn, $query);
+if ($row = pg_fetch_assoc($result)) {
+	echo 'Got it. ';
+	echo $row['password'];
+} else {
+	echo 'Failed.';
+}
+
+
+/*$errors = array();
 $values = array();
 
 $go = $_GET['go'];
@@ -55,5 +68,5 @@ if (count($errors) == 0) {
 	$_SESSION['errors'] = $errors;
 	$_SESSION['values'] = $values;
 	header("Location: ../index.php?go=".$go);
-}
+}*/
 ?>

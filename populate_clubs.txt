@@ -1,0 +1,5 @@
+DELETE FROM courtschedule;
+DELETE FROM members;
+DELETE FROM clubs;
+INSERT INTO clubs (club, username, password, first_name, last_name, email, phone, num_courts, open_time, close_time, res_min, res_max, res_interval) VALUES ('Gold Creek Tennis and Sports Club', 'admin', 'password', 'Tom', 'Hardwood', 'tomh@goldcreek.com', '4254981778', 6, 0600, 2200, '60 minute', '120 minute', '30 minute');
+INSERT INTO clubs (club, username, password, first_name, last_name, email, phone, num_courts, open_time, close_time, res_min, res_max, res_interval) VALUES ('Levy Tennis Pavilion', 'admin2', 'password', 'Jonathan', 'Armstrong', 'jonathana@levytennis.com', '4258068391', 4, 0900, 2130, '60 minute', '60 minute', '30 minute');
