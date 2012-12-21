@@ -7,13 +7,13 @@ $password = $_POST['password'];
 
 $query = "SELECT club_id, password FROM clubs WHERE username='$username'";
 $result = pg_query($pg_conn, $query);
-if ($row = pg_fetch_assoc($result)) {
-	echo 'Got it. ';
-	echo $row['password'];
+$row = pg_fetch_assoc($result);
+if ($row['password'] == $password) {
+	$_SESSION['user_id'] = $row['club_id'];
+	header("Location: ../dashboard.php");
 } else {
-	echo 'Failed.';
+	header("Location: ../index.php");
 }
-
 
 /*$errors = array();
 $values = array();
