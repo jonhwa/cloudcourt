@@ -11,7 +11,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<title>CloudCourt</title>
 
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/960_24_col.css"/>
+	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
+
+	<script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="js/fullcalendar.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#calendar').fullCalendar({
+
+			})
+		})
+	</script>
 </head>
 
 <body>
@@ -35,9 +51,6 @@
 				<span class="link rightalign">Tomorrow</span>
 			</div>
 			<div id="calendar">
-				<div id="times">
-					<!-- CALENDAR TIMES -->
-				</div>
 				<?php
 					/*$week = 60 * 60 * 24 * 7;
 					$query = "SELECT * FROM courtschedule WHERE timestart > '$week' ORDER BY timestart asc";
