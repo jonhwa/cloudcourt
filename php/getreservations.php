@@ -25,8 +25,13 @@ while ($row = pg_fetch_assoc($result)) {
 	$end_time = htmlspecialchars($row['end_time']);
 	echo '<id>'.$id.'</id><start>'.$start_time.'</start><end>'.$end_time.'</end>';
 	
+	//Just get the first member for display purposes
+	$member_id = htmlspecialchars($row['member_id1']);
+	$name = htmlspecialchars(getName($member_id));
+	echo '<memberid>'.$member_id.'</memberid><membername>'.$name.'</membername>';
+
 	//Loop through all four member_id fields, printing out the relevant ones
-	for ($i = 0; $i < 4; $i++) {
+	/*for ($i = 0; $i < 4; $i++) {
 		$n = $i + 1;
 		$string = 'member_id'.$n;
 		$member = htmlspecialchars($row[$string]);
@@ -35,7 +40,7 @@ while ($row = pg_fetch_assoc($result)) {
 			$name = htmlspecialchars(getName($member));
 			echo '<memberid>'.$member.'</memberid><membername>'.$name.'</membername>';
 		}
-	}
+	}*/
 	echo '</div></data>';
 }
 

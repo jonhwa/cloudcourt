@@ -54,8 +54,12 @@
 								var event_id = $(this).find('id').text();
 								alert('id: ' + event_id);
 								var startTime = $(this).find('start').text();
+								startTime = startTime.replace(' ', 'T');
+    							startTime = startTime + 'Z';
 								alert('start: ' + startTime);
 								var endTime = $(this).find('end').text();
+								endTime = endTime.replace(' ', 'T');
+    							endTime = endTime + 'Z';
 								alert('end: ' + endTime);
 								var memberID = $(this).find('memberid').text();
 								alert('memberid: ' + memberID);
