@@ -41,8 +41,9 @@ while ($row = pg_fetch_assoc($result)) {
 			echo '<memberid>'.$member.'</memberid><membername>'.$name.'</membername>';
 		}
 	}*/
-	echo '</div></data>';
+	echo '</div>';
 }
+echo '</data>';
 
 function getName($member_id) {
 	$query = "SELECT first_name, last_name FROM members WHERE member_id='$member_id'";

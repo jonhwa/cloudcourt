@@ -11,8 +11,8 @@ CREATE TABLE clubs (
 	email varchar(100) NOT NULL,
 	phone varchar(11) NOT NULL,
 	num_courts integer NOT NULL,
-	open_time integer,
-	close_time integer,
+	open_time varchar(4),
+	close_time varchar(4),
 	res_min interval,
 	res_max interval,
 	res_interval interval

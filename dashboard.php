@@ -5,8 +5,19 @@
 	}
 	$user = $_SESSION['user_id'];
 
-	$courts = array();
-	$courtschedule = array();
+	$query = "SELECT open_time, close_time FROM clubs WHERE club_id='$user'";
+	$result = pg_query($query);
+	$row = pg_fetch_assoc($result);
+	$open = $row['open_time'];
+	$close = $row['close_time'];
+
+	$hour = $open.slice(0, 1);
+	$minute = $open.slice(2, 3);
+	$open = $hour.':'.$minute;
+
+	$hour = $close.slice(0, 1);
+	$minute = $close.slice(2, 3);
+	$close = $hour.':'.$minute;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,6 +45,8 @@
 					right: 'today next'
 				},
 				editable: true,
+				minTime: $('#open').value(),
+				maxTime: $('#close').value(),
 				allDaySlot: false,
 				allDayDefault: false,
 				defaultEventMinutes: 90,
@@ -81,6 +94,8 @@
 </head>
 
 <body>
+	<input type="hidden" id="open" value="<?php echo $open ?>"/>
+	<input type="hidden" id="close" value="<?php echo $close ?>"
 	<div id="header">
 		<!-- LOGO -->
 		<h1>Logo</h1>
