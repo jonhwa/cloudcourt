@@ -17,6 +17,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 	<link rel="stylesheet" type="text/css" href="css/960_24_col.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.9.2.custom.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
 
 	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
@@ -24,11 +25,6 @@
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var date = new Date();
-			var d = date.getDate();
-			var m = date.getMonth();
-			var y = date.getFullYear();
-
 			$('#calendar').fullCalendar({
 				height: 700,
 				defaultView: 'agendaWeek',
@@ -37,21 +33,9 @@
 					center: 'agendaWeek,agendaDay',
 					right: 'today next'
 				},
-				//allDaySlot: false,
+				allDaySlot: false,
 				allDayDefault: false,
 				defaultEventMinutes: 90,
-				/*events: [
-						{
-							title: 'All-Day Event',
-							start: new Date(y, m, d-1),
-							allDay: true
-						},
-						{
-							title: 'Timed Event',
-							start: new Date(y, m, d, 16, 0),
-							end: new Date(y, m, d, 18, 30)
-						}
-				]*/
 				events: function(start, end, callback) {
 					var today = new Date();
 					$.ajax({
@@ -69,19 +53,14 @@
 							var events = [];
 							$(data).find('div').each(function() {
 								var event_id = $(this).find('id').text();
-								//alert('id: ' + event_id);
 								var startTime = $(this).find('start').text();
 								startTime = startTime.replace(' ', 'T');
     							startTime = startTime + 'Z';
-								//alert('start: ' + startTime);
 								var endTime = $(this).find('end').text();
 								endTime = endTime.replace(' ', 'T');
     							endTime = endTime + 'Z';
-								//alert('end: ' + endTime);
 								var memberID = $(this).find('memberid').text();
-								//alert('memberid: ' + memberID);
 								var memberName = $(this).find('membername').text();
-								//alert('membername: ' + memberName);
 								events.push({
 									id: event_id,
 									title: 'Member reservation by ' + memberName,
