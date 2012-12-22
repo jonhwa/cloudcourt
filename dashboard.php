@@ -48,7 +48,18 @@
 						},
 						success: function(data) {
 							var events = [];
-
+							$(data).find('div').each(function() {
+								var event_id = $(".id").text();
+								var startTime = $(".start").text();
+								alert(startTime);
+								var endTime = $(".end").text();
+								var memberID = $(".member_id").text();
+								var memberName = $(".member_name").text();
+								events.push({
+									id: event_id,
+									title: 'Member reservation by ' + memberName,
+								})
+							});
 						}
 					})
 				}

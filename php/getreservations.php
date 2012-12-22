@@ -15,9 +15,11 @@ $interval = '30 days';
 $query = "SELECT * FROM courtschedule WHERE @(start_time - timestamp '$timestamp') <= interval '$interval' AND club_id = '$user'";
 $result = pg_query($query);
 for ($row = pg_fetch_assoc($result)) {
+	echo '<div>';
+	$id = $row['schedule_id'];
 	$start_time = $row['start_time'];
 	$end_time = $row['end_time'];
-	echo '<span id="start">'.$start_time.'</span><span id="end">'.$end_time.'</span>';
+	echo '<span class="id">'.$id.'</span><span class="start">'.$start_time.'</span><span class="end">'.$end_time.'</span>';
 	
 	//Loop through all four member_id fields, printing out the relevant ones
 	for ($i = 0; $i < 4; $i++) {
@@ -25,8 +27,9 @@ for ($row = pg_fetch_assoc($result)) {
 		$string = 'member_id'.$n;
 		$member = $row[$string];
 		$name = getName($member);
-		echo '<span id="member_id'.$n.'">'.$member.'</span><span id=member_name'.$n.'">'.$name.'</span>';
+		echo '<span class="member_id">'.$member.'</span><span class=member_name">'.$name.'</span>';
 	}
+	echo '</div>';
 }
 
 function getName($member_id) {
