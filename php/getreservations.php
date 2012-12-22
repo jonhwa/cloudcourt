@@ -26,8 +26,11 @@ while ($row = pg_fetch_assoc($result)) {
 		$n = $i + 1;
 		$string = 'member_id'.$n;
 		$member = $row[$string];
-		$name = getName($member);
-		echo '<span class="member_id">'.$member.'</span><span class=member_name">'.$name.'</span>';
+		
+		if ($member != '') {
+			$name = getName($member);
+			echo '<span class="member_id">'.$member.'</span><span class=member_name">'.$name.'</span>';
+		}
 	}
 	echo '</div>';
 }
