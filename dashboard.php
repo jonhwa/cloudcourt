@@ -45,6 +45,9 @@
 							month: today.getMonth() + 1,
 							year: today.getFullYear(),
 						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
+						},
 						success: function(msg) {
 							alert('worked ' + msg);
 						}
