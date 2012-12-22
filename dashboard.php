@@ -45,8 +45,8 @@
 					right: 'today next'
 				},
 				editable: true,
-				minTime: $('#open').value(),
-				maxTime: $('#close').value(),
+				minTime: $('#open').val(),
+				maxTime: $('#close').val(),
 				allDaySlot: false,
 				allDayDefault: false,
 				defaultEventMinutes: 90,
