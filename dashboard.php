@@ -34,8 +34,13 @@
 				},
 				allDaySlot: false,
 				defaultEventMinutes: 90,
-
-				events: function(start, end, callback) {
+				events: [
+						{
+							title: 'Event',
+							start: new Date();
+						}
+				]
+				/*events: function(start, end, callback) {
 					var today = new Date();
 					$.ajax({
 						url: 'php/getreservations.php',
@@ -75,7 +80,7 @@
 							callback(events);
 						}
 					});
-				}
+				}*/
 			});
 		})
 	</script>
