@@ -51,10 +51,11 @@
 						success: function(data) {
 							alert('Success: ' + data);
 							var events = [];
+							alert('Text: ' + $(data).find('div').text());
 							$(data).find('div').each(function() {
 								var event_id = $(".id").text();
 								var startTime = $(".start").text();
-								alert("start: " + startTime);
+								alert('start: ' + startTime);
 								var endTime = $(".end").text();
 								var memberID = $(".member_id").text();
 								var memberName = $(".member_name").text();
