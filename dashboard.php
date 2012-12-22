@@ -27,7 +27,7 @@
 		$(document).ready(function() {
 			$('#calendar').fullCalendar({
 				theme: true,
-				height: 700,
+				height: 400,
 				aspectRatio: 1.35,
 				defaultView: 'agendaWeek',
 				header: {
