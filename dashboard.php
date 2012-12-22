@@ -1,6 +1,7 @@
 <?php
 	include_once("php/connect.php");
 	if (!isset($_SESSION['user_id'])) {
+		echo 'session is not set!';
 		//header("Location: index.php");
 	}
 	$user = $_SESSION['user_id'];

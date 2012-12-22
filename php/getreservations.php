@@ -1,8 +1,6 @@
 <?php
 require("php/connect.php");
 $user = $_SESSION['user_id'];
-echo 'hello.';
-exit;
 
 //Get date as passed in from AJAX function
 $month = $_GET['month'];
@@ -16,7 +14,7 @@ $interval = '30 days';
 //Query all court reservations within $interval of the current day
 $query = "SELECT * FROM courtschedule WHERE @(start_time - timestamp '$timestamp') <= interval '$interval' AND club_id = '$user'";
 $result = pg_query($query);
-for ($row = pg_fetch_assoc($result)) {
+while ($row = pg_fetch_assoc($result)) {
 	echo '<div>';
 	$id = $row['schedule_id'];
 	$start_time = $row['start_time'];
