@@ -74,9 +74,9 @@
 							});
 							callback(events);
 						}
-					})
+					});
 				}
-			})
+			});
 		})
 	</script>
 </head>
