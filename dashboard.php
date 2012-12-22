@@ -37,7 +37,7 @@
 				events: [
 						{
 							title: 'Event',
-							start: new Date()
+							start: new Date(2012, 12, 21, 16, 0)
 						}
 				]
 				/*events: function(start, end, callback) {
