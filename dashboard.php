@@ -48,11 +48,7 @@
 						error: function(jqXHR, textStatus, errorThrown) {
 							alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 						},
-						success: function(msg) {
-							alert('worked ' + msg);
-						}
-
-						/*function(data) {
+						success: function(data) {
 							var events = [];
 							$(data).find('div').each(function() {
 								var event_id = $(".id").text();
@@ -66,7 +62,7 @@
 									title: 'Member reservation by ' + memberName,
 								})
 							});
-						}*/
+						}
 					})
 				}
 			})
