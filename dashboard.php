@@ -41,9 +41,9 @@
 						url: 'php/getreservations.php',
 						dataType: 'xml',
 						data: {
-							day: today.getDate();
-							month: today.getMonth(); //Convert to 1-12 scale from 0-11
-							year: today.getFullYear();
+							day: today.getDate(),
+							month: today.getMonth() + 1,
+							year: today.getFullYear(),
 						},
 						success: function(data) {
 							var events = [];
