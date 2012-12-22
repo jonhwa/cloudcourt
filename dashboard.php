@@ -1,7 +1,7 @@
 <?php
 	include_once("php/connect.php");
 	if (!isset($_SESSION['user_id'])) {
-		header("Location: index.php");
+		//header("Location: index.php");
 	}
 	$user = $_SESSION['user_id'];
 
@@ -23,7 +23,9 @@
 	<script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
+	alert("Hello");
 		$(document).ready(function() {
+			alert("We are here");
 			$('#calendar').fullCalendar({
 				height: 700,
 				defaultView: 'agendaWeek',
@@ -37,6 +39,7 @@
 
 				events: function(start, end, callback) {
 					$.ajax({
+						alert("IN AJAX!");
 						url: 'php/getreservations.php',
 						dataType: 'xml',
 						data: function() {
