@@ -42,7 +42,7 @@
 				events: [
 						{
 							title: 'All-Day Event',
-							start: new Date(y, m, d-1);
+							start: new Date(y, m, d-1)
 						},
 						{
 							title: 'Timed Event',
