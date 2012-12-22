@@ -1,6 +1,8 @@
 <?php
 require("php/connect.php");
 $user = $_SESSION['user_id'];
+echo 'hello.';
+exit;
 
 //Get date as passed in from AJAX function
 $month = $_GET['month'];

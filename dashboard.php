@@ -23,9 +23,7 @@
 	<script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
-	alert("Hello");
 		$(document).ready(function() {
-			alert("We are here");
 			$('#calendar').fullCalendar({
 				height: 700,
 				defaultView: 'agendaWeek',
@@ -53,7 +51,7 @@
 							$(data).find('div').each(function() {
 								var event_id = $(".id").text();
 								var startTime = $(".start").text();
-								alert(startTime);
+								alert("start: " + startTime);
 								var endTime = $(".end").text();
 								var memberID = $(".member_id").text();
 								var memberName = $(".member_name").text();
