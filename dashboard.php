@@ -37,12 +37,13 @@
 					center: 'agendaWeek,agendaDay',
 					right: 'today next'
 				},
-				//allDaySlot: false,
-				//defaultEventMinutes: 90,
+				allDaySlot: false,
+				defaultEventMinutes: 90,
 				events: [
 						{
 							title: 'All-Day Event',
-							start: new Date(y, m, d-1)
+							start: new Date(y, m, d-1),
+							allDay: true
 						},
 						{
 							title: 'Timed Event',
