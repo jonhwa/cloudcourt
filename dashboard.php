@@ -95,7 +95,7 @@
 
 <body>
 	<input type="hidden" id="open" value="<?php echo $open ?>"/>
-	<input type="hidden" id="close" value="<?php echo $close ?>"
+	<input type="hidden" id="close" value="<?php echo $close ?>"/>
 	<div id="header">
 		<!-- LOGO -->
 		<h1>Logo</h1>
