@@ -1,5 +1,5 @@
 <?php
-require("php/connect.php");
+require("connect.php");
 $user = $_SESSION['user_id'];
 
 //Get date as passed in from AJAX function
