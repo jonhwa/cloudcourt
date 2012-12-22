@@ -3,7 +3,7 @@ require("connect.php");
 $user = $_SESSION['user_id'];
 
 //Get date as passed in from AJAX function
-$month = $_GET['month'];
+$month = $_GET['month'] + 1;
 $day = $_GET['day'];
 $year = $_GET['year'];
 
