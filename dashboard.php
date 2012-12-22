@@ -45,7 +45,11 @@
 							month: today.getMonth() + 1,
 							year: today.getFullYear(),
 						},
-						success: function(data) {
+						success: function(msg) {
+							alert('worked ' + msg);
+						}
+
+						/*function(data) {
 							var events = [];
 							$(data).find('div').each(function() {
 								var event_id = $(".id").text();
@@ -59,7 +63,7 @@
 									title: 'Member reservation by ' + memberName,
 								})
 							});
-						}
+						}*/
 					})
 				}
 			})
