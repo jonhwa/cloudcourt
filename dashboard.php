@@ -49,19 +49,18 @@
 							alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 						},
 						success: function(data) {
-							alert('Success: ' + data);
 							var events = [];
-							console.log(data);
-							alert('Text1: ' + $(data).find('div').find('start').text() + 'Text2: ' + $(data).find('div').attr('start'));
 							$(data).find('div').each(function() {
-								var event_id = $(this).attr('id');
+								var event_id = $(this).find('id').text();
 								alert('id: ' + event_id);
-								var event_id = $(".id").text();
-								var startTime = $(".start").text();
+								var startTime = $(this).find('start').text();
 								alert('start: ' + startTime);
-								var endTime = $(".end").text();
-								var memberID = $(".member_id").text();
-								var memberName = $(".member_name").text();
+								var endTime = $(this).find('end').text();
+								alert('end: ' + endTime);
+								var memberID = $(this).find('memberid').text();
+								alert('memberid: ' + memberID);
+								var memberName = $(this).find('membername').text();
+								alert('membername: ' + memberName);
 								events.push({
 									id: event_id,
 									title: 'Member reservation by ' + memberName,
