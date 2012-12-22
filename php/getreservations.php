@@ -12,7 +12,7 @@ $timestamp = $year.'-'.$month.'-'.$day.' 00:00:00';
 $interval = '30 days';
 
 //Query all court reservations within $interval of the current day
-$query = "SELECT * FROM courtschedule WHERE @(start_time - timestamp '$timestamp') <= interval '$interval' AND club_id = '$user'";
+$query = "SELECT * FROM courtschedule WHERE (start_time - timestamp '$timestamp' <= interval '$interval' OR start_time + timestamp '$timestamp' <= interval '$interval') AND club_id = '$user'";
 $result = pg_query($query);
 while ($row = pg_fetch_assoc($result)) {
 	echo '<div>';
