@@ -12,6 +12,7 @@ $timestamp = $year.'-'.$month.'-'.$day.' 00:00:00';
 $interval = '30 days';
 
 //Make it XML output so jQuery functions can be used on it
+header ("Content-Type:text/xml");
 echo '<?xml version="1.0" encoding="iso-8859-1"?><data>';
 
 //Query all court reservations within $interval of the current day
