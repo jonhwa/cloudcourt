@@ -42,7 +42,7 @@
 						dataType: 'xml',
 						data: {
 							day: today.getDate();
-							month: today.getMonth() + 1; //Convert to 1-12 scale from 0-11
+							month: (today.getMonth() + 1); //Convert to 1-12 scale from 0-11
 							year: today.getFullYear();
 						},
 						success: function(data) {
