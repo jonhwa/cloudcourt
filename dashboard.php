@@ -11,12 +11,12 @@
 	$open = $row['open_time'];
 	$close = $row['close_time'];
 
-	$hour = $open.slice(0, 1);
-	$minute = $open.slice(2, 3);
+	$hour = $open.substr(0, 2);
+	$minute = $open.substr(2, 2);
 	$open = $hour.':'.$minute;
 
-	$hour = $close.slice(0, 1);
-	$minute = $close.slice(2, 3);
+	$hour = $close.substr(0, 2);
+	$minute = $close.substr(2, 2);
 	$close = $hour.':'.$minute;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
