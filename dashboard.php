@@ -39,7 +39,7 @@
 					var today = new Date();
 					$.ajax({
 						url: 'php/getreservations.php',
-						dataType: 'xml',
+						dataType: 'html',
 						data: {
 							day: today.getDate(),
 							month: today.getMonth() + 1,
