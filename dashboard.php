@@ -49,6 +49,7 @@
 							alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 						},
 						success: function(data) {
+							alert('Success: ' + data);
 							var events = [];
 							$(data).find('div').each(function() {
 								var event_id = $(".id").text();
