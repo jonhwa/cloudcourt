@@ -33,6 +33,7 @@
 					center: 'agendaWeek,agendaDay',
 					right: 'today next'
 				},
+				editable: true,
 				allDaySlot: false,
 				allDayDefault: false,
 				defaultEventMinutes: 90,
@@ -94,34 +95,7 @@
 	<div id="main">
 		<!-- COURT SCHEDULE -->
 		<div id="schedule">
-			<div id="dateheader">
-				<span class="link leftalign">Yesterday</span>
-				<span class="centeralign"><!--DATE--></span>
-				<span class="link rightalign">Tomorrow</span>
-			</div>
-			<div id="calendar" style="width: 1100px;">
-				<?php
-					/*$week = 60 * 60 * 24 * 7;
-					$query = "SELECT * FROM courtschedule WHERE timestart > '$week' ORDER BY timestart asc";
-					$result = mysql_query($query) or die(mysql_error());
-					while ($row = mysql_fetch_assoc($result)) {
-						$memberid = $row['member_id'];
-						$name = $row['name'];
-						$timestart = $row['timestart'];
-						$timeend = $row['timeend'];
-						//Create a "reservation" object and put it in an array, with the court number as the key
-					}
-
-					$query = "SELECT num_courts FROM clubs WHERE id='$user'";
-					$result = mysql_query($query) or die(mysql_error());
-					$num_courts = mysql_fetch_assoc($result)['num_courts'];
-					for ($i = 0; $i < $num_courts; $i++) {
-						echo '<div class="court">';
-						//Loop through all reservations for the court and print them out
-						echo '</div>';
-					}*/
-				?>
-			</div>
+			<div id="calendar" style="width: 1100px;"></div>
 		</div>
 
 		<!-- RANKING LADDERS -->
