@@ -26,6 +26,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#calendar').fullCalendar({
+				theme: true,
 				height: 700,
 				defaultView: 'agendaWeek',
 				header: {
