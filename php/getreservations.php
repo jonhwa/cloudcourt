@@ -11,6 +11,9 @@ $year = $_GET['year'];
 $timestamp = $year.'-'.$month.'-'.$day.' 00:00:00';
 $interval = '30 days';
 
+//Make it XML output so jQuery functions can be used on it
+echo '<?xml version="1.0" encoding="iso-8859-1"?><data>';
+
 //Query all court reservations within $interval of the current day
 $query = "SELECT * FROM courtschedule WHERE (start_time - timestamp '$timestamp' <= interval '$interval' OR timestamp '$timestamp' - start_time <= interval '$interval') AND club_id = '$user'";
 $result = pg_query($query);
@@ -32,7 +35,7 @@ while ($row = pg_fetch_assoc($result)) {
 			echo '<span class="member_id">'.$member.'</span><span class=member_name">'.$name.'</span>';
 		}
 	}
-	echo '</div>';
+	echo '</div></data>';
 }
 
 function getName($member_id) {
