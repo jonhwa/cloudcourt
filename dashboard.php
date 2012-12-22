@@ -27,8 +27,7 @@
 		$(document).ready(function() {
 			$('#calendar').fullCalendar({
 				theme: true,
-				height: 400,
-				aspectRatio: 1.35,
+				height: 600,
 				defaultView: 'agendaWeek',
 				header: {
 					left: 'prev title',
@@ -99,7 +98,7 @@
 				<span class="centeralign"><!--DATE--></span>
 				<span class="link rightalign">Tomorrow</span>
 			</div>
-			<div id="calendar">
+			<div id="calendar" style="width: 800px;">
 				<?php
 					/*$week = 60 * 60 * 24 * 7;
 					$query = "SELECT * FROM courtschedule WHERE timestart > '$week' ORDER BY timestart asc";
