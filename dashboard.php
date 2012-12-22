@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="css/south-street.css"/>
 	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
 
-	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
