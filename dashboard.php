@@ -66,8 +66,8 @@
 									title: 'Member reservation by ' + memberName,
 									start: startTime,
 									end: endTime,
-									backgroundColor: #67B021,
-									borderColor: #327e04
+									backgroundColor: '#67B021',
+									borderColor: '#327e04'
 								});
 							});
 							callback(events);
