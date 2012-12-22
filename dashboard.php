@@ -39,7 +39,6 @@
 
 				events: function(start, end, callback) {
 					$.ajax({
-						alert("IN AJAX!");
 						url: 'php/getreservations.php',
 						dataType: 'xml',
 						data: function() {
