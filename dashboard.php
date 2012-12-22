@@ -24,6 +24,11 @@
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			var date = new Date();
+			var d = date.getDate();
+			var m = date.getMonth();
+			var y = date.getFullYear();
+
 			$('#calendar').fullCalendar({
 				height: 700,
 				defaultView: 'agendaWeek',
@@ -36,8 +41,13 @@
 				//defaultEventMinutes: 90,
 				events: [
 						{
-							title: 'Event',
-							start: new Date(2012, 12, 21, 16, 0)
+							title: 'All-Day Event',
+							start: new Date(y, m, d-1);
+						},
+						{
+							title: 'Timed Event',
+							start: new Date(y, m, d, 16, 0),
+							end: new Date(y, m, d, 17, 30)
 						}
 				]
 				/*events: function(start, end, callback) {
