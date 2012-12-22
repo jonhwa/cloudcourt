@@ -17,11 +17,11 @@
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 	<link rel="stylesheet" type="text/css" href="css/960_24_col.css"/>
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.9.2.custom.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/south-street.css"/>
 	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
 
 	<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
