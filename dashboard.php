@@ -72,6 +72,7 @@
 									end: endTime
 								})
 							});
+							callback(events);
 						}
 					})
 				}
