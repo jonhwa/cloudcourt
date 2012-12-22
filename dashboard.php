@@ -36,15 +36,14 @@
 				defaultEventMinutes: 90,
 
 				events: function(start, end, callback) {
+					var today = new Date();
 					$.ajax({
 						url: 'php/getreservations.php',
 						dataType: 'xml',
-						data: function() {
-							var today = new Date();
-							var day = today.getDate();
-							var month = today.getMonth() + 1; //Convert to 1-12 scale from 0-11
-							var year = today.getFullYear();
-							return "month=" + month + "&day=" + day + "&year=" + year;
+						data: {
+							day: today.getDate();
+							month: today.getMonth() + 1; //Convert to 1-12 scale from 0-11
+							year: today.getFullYear();
 						},
 						success: function(data) {
 							var events = [];
