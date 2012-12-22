@@ -23,7 +23,7 @@ while ($row = pg_fetch_assoc($result)) {
 	$id = htmlspecialchars($row['schedule_id']);
 	$start_time = htmlspecialchars($row['start_time']);
 	$end_time = htmlspecialchars($row['end_time']);
-	echo '<span class="id">'.$id.'</span><span class="start">'.$start_time.'</span><span class="end">'.$end_time.'</span>';
+	echo '<id>'.$id.'</id><start>'.$start_time.'</start><end>'.$end_time.'</end>';
 	
 	//Loop through all four member_id fields, printing out the relevant ones
 	for ($i = 0; $i < 4; $i++) {
@@ -33,7 +33,7 @@ while ($row = pg_fetch_assoc($result)) {
 		
 		if ($member != '') {
 			$name = htmlspecialchars(getName($member));
-			echo '<span class="member_id">'.$member.'</span><span class=member_name">'.$name.'</span>';
+			echo '<memberid>'.$member.'</memberid><membername>'.$name.'</membername>';
 		}
 	}
 	echo '</div></data>';
