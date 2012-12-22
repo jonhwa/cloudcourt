@@ -52,22 +52,24 @@
 							var events = [];
 							$(data).find('div').each(function() {
 								var event_id = $(this).find('id').text();
-								alert('id: ' + event_id);
+								//alert('id: ' + event_id);
 								var startTime = $(this).find('start').text();
 								startTime = startTime.replace(' ', 'T');
     							startTime = startTime + 'Z';
-								alert('start: ' + startTime);
+								//alert('start: ' + startTime);
 								var endTime = $(this).find('end').text();
 								endTime = endTime.replace(' ', 'T');
     							endTime = endTime + 'Z';
-								alert('end: ' + endTime);
+								//alert('end: ' + endTime);
 								var memberID = $(this).find('memberid').text();
-								alert('memberid: ' + memberID);
+								//alert('memberid: ' + memberID);
 								var memberName = $(this).find('membername').text();
-								alert('membername: ' + memberName);
+								//alert('membername: ' + memberName);
 								events.push({
 									id: event_id,
 									title: 'Member reservation by ' + memberName,
+									start: startTime,
+									end: endTime
 								})
 							});
 						}
