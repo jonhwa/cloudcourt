@@ -52,7 +52,7 @@
 							alert('Success: ' + data);
 							var events = [];
 							console.log(data);
-							alert('Text1: ' + $(data).find('div').attr('start') + 'Text2: ' + $(data).find('div').attr('start'));
+							alert('Text1: ' + $(data).find('div').find('start').text() + 'Text2: ' + $(data).find('div').attr('start'));
 							$(data).find('div').each(function() {
 								var event_id = $(this).attr('id');
 								alert('id: ' + event_id);
