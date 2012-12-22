@@ -32,8 +32,8 @@
 					center: 'agendaWeek,agendaDay',
 					right: 'today next'
 				},
-				allDaySlot: false,
-				defaultEventMinutes: 90,
+				//allDaySlot: false,
+				//defaultEventMinutes: 90,
 				events: [
 						{
 							title: 'Event',
