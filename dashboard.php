@@ -70,7 +70,7 @@
 									title: 'Member reservation by ' + memberName,
 									start: startTime,
 									end: endTime
-								})
+								});
 							});
 							callback(events);
 						}
