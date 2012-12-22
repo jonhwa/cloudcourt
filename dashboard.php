@@ -51,7 +51,7 @@
 						success: function(data) {
 							alert('Success: ' + data);
 							var events = [];
-							alert('Text: ' + $(data).html + $(data).find('div').html());
+							alert('Text: ' + $(data).find('div').attr('start'));
 							$(data).find('div').each(function() {
 								var event_id = $(".id").text();
 								var startTime = $(".start").text();
