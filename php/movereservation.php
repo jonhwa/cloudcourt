@@ -20,6 +20,6 @@ $start = $startYear.'-'.$startMonth.'-'.$startDay.' '.$startHour.':'.$startMin.'
 $end = $endYear.'-'.$endMonth.'-'.$endDay.' '.$endHour.':'.$endMin.':00';
 
 //Change reservation's start and end times
-$query = "UPDATE courtschedule SET (start_time = '$start', end_time = '$end') WHERE schedule_id = '$event_id'";
+$query = "UPDATE courtschedule SET start_time = '$start', end_time = '$end' WHERE schedule_id = '$event_id'";
 pg_query($query);
 ?>
