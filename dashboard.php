@@ -136,12 +136,12 @@
 
 		function eventIsValid(event) {
 			//Initialize constraints for the specific club
-			var minHour = parseInt($('#open').val().splice(0, 1));
-			var minMin = parseInt($('#open').val().splice(3, 4));
+			var minHour = parseInt($('#open').val().slice(0, 1));
+			var minMin = parseInt($('#open').val().slice(3, 4));
 			var minInMin = minHour * 60 + minMin;
 
-			var maxHour = parseInt($('#close').val().splice(0, 1));
-			var maxMin = parseInt($('#close').val().splice(3, 4));
+			var maxHour = parseInt($('#close').val().slice(0, 1));
+			var maxMin = parseInt($('#close').val().slice(3, 4));
 			var maxInMin = maxHour * 60 + maxMin;
 
 			//Get the start and end times
