@@ -115,12 +115,12 @@
 								startmonth: start.getMonth(),
 								startyear: start.getFullYear(),
 								starthour: start.getHours(),
-								startmin: start.getMinutes(),
+								startmin: (start.getMinutes()<10?'0':'') + start.getMinutes(),
 								endday: end.getDate(),
 								endmonth: end.getMonth(),
 								endyear: end.getFullYear(),
 								endhour: end.getHours(),
-								endmin: end.getMinutes()
+								endmin: (end.getMinutes()<10?'0':'') + end.getMinutes()
 							},
 							error: function(jqXHR, textStatus, errorThrown) {
 								alert('There was a problem moving the reservation: ' + errorThrown);
