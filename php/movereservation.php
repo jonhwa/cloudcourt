@@ -1,4 +1,5 @@
 <?php
+require('connect.php');
 
 $event_id = $_GET['event_id'];
 
