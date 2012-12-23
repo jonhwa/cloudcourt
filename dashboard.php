@@ -160,6 +160,7 @@
 
 			//Compare start and end times to make sure they are within the open and closing hours
 			if (startInMin < minInMin || endInMin > maxInMin) {
+				alert("start: " + startInMin + " min: " + minInMin + " end: " + endInMin + " max: " + maxInMin);
 				return false;
 			}
 
@@ -172,6 +173,7 @@
 
 			//Compare reservation length with constraints
 			if (length < resMin || length > resMax) {
+				alert("length: " + length + " min: " + resMin + " max: " + resMax);
 				return false;
 			}
 
