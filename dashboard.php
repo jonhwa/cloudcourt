@@ -5,7 +5,7 @@
 	}
 	$user = $_SESSION['user_id'];
 
-	$query = "SELECT open_time, close_time FROM clubs WHERE club_id='$user'";
+	$query = "SELECT res_min, res_max, open_time, close_time FROM clubs WHERE club_id='$user'";
 	$result = pg_query($query);
 	$row = pg_fetch_assoc($result);
 	$open = $row['open_time'];
@@ -18,6 +18,10 @@
 	$hour = substr($close, 0, 2);
 	$minute = substr($close, 2, 2);
 	$close = $hour.':'.$minute;
+
+	$resMin = $row['res_min'];
+	$resMax = $row['res_max'];
+	echo $resMin;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,6 +41,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#calendar').fullCalendar({
+				//Set defaults
 				theme: true,
 				defaultView: 'agendaWeek',
 				header: {
@@ -45,11 +50,15 @@
 					right: 'today next'
 				},
 				editable: true,
-				minTime: $('#open').val(),
-				maxTime: $('#close').val(),
 				allDaySlot: false,
 				allDayDefault: false,
 				defaultEventMinutes: 90,
+
+				//Set min and max time according to specified opening and closing times
+				minTime: $('#open').val(),
+				maxTime: $('#close').val(),
+
+				//Generate list of events from AJAX call to the database table courtschedule
 				events: function(start, end, callback) {
 					var today = new Date();
 					$.ajax({
@@ -87,15 +96,64 @@
 							callback(events);
 						}
 					});
+				},
+
+				//When an event is dragged and dropped, submit change to database
+				eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
+					var event_id = event['id'];
+					var startTime = event['start'];
+					var endTime = event['end'];
+
+					var start = new Date(startTime);
+					var startInMin = start.getHours() * 60 + start.getMinutes();
+					//if (startTime)
 				}
 			});
 		})
+
+		function testEventTime(event) {
+			//Initialize constraints for the specific club
+			var minHour = parseInt($('#open').val().splice(0, 1));
+			var minMin = parseInt($('#open').val().splice(3, 4));
+			var minInMin = minHour * 60 + minMin;
+
+			var maxHour = parseInt($('#close').val().splice(0, 1));
+			var maxMin = parseInt($('#close').val().splice(3, 4));
+			var maxInMin = maxHour * 60 + maxMin;
+
+			//Get the start and end times
+			var startTime = event['start'];
+			var endTime = event['end'];
+
+			var start = new Date(startTime);
+			var startHour = start.getHours();
+			var startMin = start.getMinutes();
+			var startInMin = startHour * 60 + startMin;
+
+			var end = new Date(endTime);
+			var endHour = end.getHours();
+			var endMin = end.getMinutes();
+			var endInMin = endHour * 60 + endMin;
+
+			//Compare start and end times to make sure they are within the open and closing hours
+			if (startInMin < minInMin || endInMin > maxInMin) {
+				return false;
+			}
+
+			//Get max and min interval constraints
+			//var resMin = parseInt
+		}
 	</script>
 </head>
 
 <body>
+	<!-- Hidden fields for use in FullCalendar setup -->
 	<input type="hidden" id="open" value="<?php echo $open ?>"/>
 	<input type="hidden" id="close" value="<?php echo $close ?>"/>
+	<input type="hidden" id="resMin" value="<?php echo $resMin ?>"/>
+	<input type="hidden" id="resMax" value="<?php echo $resMax ?>"/>
+
+
 	<div id="header">
 		<!-- LOGO -->
 		<h1>Logo</h1>
