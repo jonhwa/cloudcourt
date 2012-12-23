@@ -5,7 +5,8 @@
 	}
 	$user = $_SESSION['user_id'];
 
-	$query = "SELECT res_min, res_max, open_time, close_time FROM clubs WHERE club_id='$user'";
+	//Query to get open time, close time, and res_min/res_max in minutes
+	$query = "SELECT EXTRACT(EPOCH FROM res_min)/60 AS min, EXTRACT (EPOCH FROM res_max)/60 AS max, open_time, close_time FROM clubs WHERE club_id='$user'";
 	$result = pg_query($query);
 	$row = pg_fetch_assoc($result);
 	$open = $row['open_time'];
@@ -19,9 +20,8 @@
 	$minute = substr($close, 2, 2);
 	$close = $hour.':'.$minute;
 
-	$resMin = $row['res_min'];
-	$resMax = $row['res_max'];
-	echo $resMin;
+	$resMin = $row['min'];
+	$resMax = $row['max'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -101,17 +101,40 @@
 				//When an event is dragged and dropped, submit change to database
 				eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
 					var event_id = event['id'];
-					var startTime = event['start'];
-					var endTime = event['end'];
+					
+					if (eventIsValid(event)) {
+						var start = new Date(event['start']);
+						var end = new Date(event['end']);
 
-					var start = new Date(startTime);
-					var startInMin = start.getHours() * 60 + start.getMinutes();
-					//if (startTime)
+						//Use AJAX call to submit changes to the event without refreshing the paeg
+						$.ajax({
+							url: 'php/movereservation.php',
+							data: {
+								event_id: event_id,
+								startday: start.getDate(),
+								startmonth: start.getMonth(),
+								startyear: start.getFullYear(),
+								starthour: start.getHours(),
+								startmin: start.getMinutes(),
+								endday: end.getDate(),
+								endmonth: end.getMonth(),
+								endyear: end.getFullYear(),
+								endhour: end.getHours(),
+								endmin: end.getMinutes()
+							},
+							error: function(jqXHR, textStatus, errorThrown) {
+								alert('There was a problem moving the reservation: ' + errorThrown);
+							}
+						});
+					} else {
+						alert("The reservation can't be moved there.");
+						revertFunc();
+					}
 				}
 			});
 		})
 
-		function testEventTime(event) {
+		function eventIsValid(event) {
 			//Initialize constraints for the specific club
 			var minHour = parseInt($('#open').val().splice(0, 1));
 			var minMin = parseInt($('#open').val().splice(3, 4));
@@ -140,8 +163,20 @@
 				return false;
 			}
 
-			//Get max and min interval constraints
-			//var resMin = parseInt
+			//Get max and min reservation length constraints (in minutes)
+			var resMin = parseInt($('#resMin').val());
+			var resMax = parseInt($('#resMax').val());
+
+			//Length of the reservation in minutes
+			var length = endInMin - startInMin;
+
+			//Compare reservation length with constraints
+			if (length < resMin || length > resMax) {
+				return false;
+			}
+
+			//If passed all the above tests, return true
+			return true;
 		}
 	</script>
 </head>
@@ -152,7 +187,6 @@
 	<input type="hidden" id="close" value="<?php echo $close ?>"/>
 	<input type="hidden" id="resMin" value="<?php echo $resMin ?>"/>
 	<input type="hidden" id="resMax" value="<?php echo $resMax ?>"/>
-
 
 	<div id="header">
 		<!-- LOGO -->
