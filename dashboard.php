@@ -113,12 +113,12 @@
 							data: {
 								event_id: event_id,
 								startday: start.getDate(),
-								startmonth: start.getMonth(),
+								startmonth: (start.getMonth() + 1),
 								startyear: start.getFullYear(),
 								starthour: start.getHours(),
 								startmin: (start.getMinutes()<10?'0':'') + start.getMinutes(),
 								endday: end.getDate(),
-								endmonth: end.getMonth(),
+								endmonth: (end.getMonth() + 1),
 								endyear: end.getFullYear(),
 								endhour: end.getHours(),
 								endmin: (end.getMinutes()<10?'0':'') + end.getMinutes()
