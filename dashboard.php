@@ -104,6 +104,7 @@
 					
 					if (eventIsValid(event)) {
 						var start = new Date(event['start']);
+						alert(start);
 						var end = new Date(event['end']);
 
 						//Use AJAX call to submit changes to the event without refreshing the paeg
