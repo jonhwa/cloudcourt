@@ -136,6 +136,7 @@
 
 		function eventIsValid(event) {
 			//Initialize constraints for the specific club
+			alert('minHour slice: ' + $('#open').val().slice(0,1));
 			var minHour = parseInt($('#open').val().slice(0, 1));
 			var minMin = parseInt($('#open').val().slice(3, 4));
 			var minInMin = minHour * 60 + minMin;
