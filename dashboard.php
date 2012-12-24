@@ -55,10 +55,9 @@
 				buttons: {
 					"Create": function() {
 						var member_id = $('#memberInput').val();
-						alert("ID: " + member_id);
 
 						//Submit new reservation via AJAX
-						/*$.ajax({
+						$.ajax({
 							url: 'php/createreservation.php',
 							dataType: 'xml',
 							data: {
@@ -102,7 +101,7 @@
 									$(this).dialog('close');
 								}
 							}
-						});*/
+						});
 					},
 					Cancel: function() {
 						$(this).dialog('close');
@@ -172,6 +171,7 @@
 				//When a user selects a slot on the calendar, ask to create an event
 				selectable: true,
 				selectHelper: true,
+				unselectAuto: false,
 				select: function(startDate, endDate) {
 					start = new Date(startDate);
 					end = new Date(endDate);
