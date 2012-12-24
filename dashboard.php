@@ -214,7 +214,7 @@
 	<div id="main">
 		<!-- COURT SCHEDULE -->
 		<div id="body">
-			<div id="sidebar"><span class="ui-state-default ui-corner-left ui-corner-right">book court</span></div>
+			<div id="sidebar"><span class="button">book court</span></div>
 			<div id="calendar"></div>
 		</div>
 
