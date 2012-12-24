@@ -1,5 +1,6 @@
 <?php
 require("connect.php");
+require("functions.php");
 $user = $_SESSION['user_id'];
 
 //Get date as passed in from AJAX function
@@ -44,13 +45,4 @@ while ($row = pg_fetch_assoc($result)) {
 	echo '</div>';
 }
 echo '</data>';
-
-function getName($member_id) {
-	$query = "SELECT first_name, last_name FROM members WHERE member_id='$member_id'";
-	$result = pg_query($query);
-	$row = pg_fetch_assoc($result);
-	$name = $row['first_name'].' '.$row['last_name'];
-	return $name;
-}
-
 ?>

@@ -47,45 +47,65 @@
 			$('#dialog').dialog({ 
 				autoOpen: false,
 				resizable: false,
+				minWidth: 400,
 				title: 'Create Reservation',
+				close: function(event, ui) {
+					calendar.fullCalendar('unselect');
+				},
 				buttons: {
 					"Create": function() {
 						var member_id = $('#member').val();
-						if (member_id == '') {
-							calendar.fullCalendar('unselect');
-						} else {
-							//Submit new reservation via AJAX
-							$.ajax({
-								url: '',
-								dataType: 'xml',
-								data: {
 
-								},
-								error: function(jqXHR, textStatus, errorThrown) {
-									alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
-								},
-								success: function(data) {
+						//Submit new reservation via AJAX
+						$.ajax({
+							url: 'php/createreservation.php',
+							dataType: 'xml',
+							data: {
+								member_id: member_id,
+								startday: start.getDate(),
+								startmonth: (start.getMonth() + 1),
+								startyear: start.getFullYear(),
+								starthour: start.getHours(),
+								startmin: (start.getMinutes()<10?'0':'') + start.getMinutes(),
+								endday: end.getDate(),
+								endmonth: (end.getMonth() + 1),
+								endyear: end.getFullYear(),
+								endhour: end.getHours(),
+								endmin: (end.getMinutes()<10?'0':'') + end.getMinutes()
+							},
+							error: function(jqXHR, textStatus, errorThrown) {
+								alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
+							},
+							success: function(data) {
+								var error = $(data).find('error');
+								if (error != null) {
+									var error = $(data).find('error').text();
+									$('#error').text(error);
+								} else {
+									var id = $(data).find('id').text();
+									var name = $(data).find('name').text();
+									var startTime = $.fullCalendar.formatDate(start, "YYYY-MM-dd'T'hh:mm:ssZ");
+									var endTime = $.fullCalendar.formatDate(end, "YYYY-MM-dd'T'hh:mm:ssZ");
+									calendar.fullCalendar('renderEvent',
+										{
+											id: id,
+											title: 'Member reservation by ' + name,
+											start: startTime,
+											end: endTime,
+											backgroundColor: '#67B021',
+											borderColor: '#327e04'
+										},
+										true //make the event "stick" 
+									);
 
+									$(this).dialog('close');
 								}
-							});
-
-							calendar.fullCalendar('renderEvent',
-								{
-									id: '',
-									title: '',
-									start: '',
-									end: '',
-									backgroundColor: '#67B021',
-									borderColor: '#327e04'
-								},
-								true //make the event "stick" 
-							);
-						}
+							}
+						});
 
 						$(this).dialog('close');
 					},
 					Cancel: function() {
-						calendar.fullCalendar('unselect');
 						$(this).dialog('close');
 					}
 				}
@@ -268,7 +288,8 @@
 	<!-- Div that holds information for the dialog box -->
 	<div id="dialog">
 		<span id="when"></span></br>
-		<span id="member">Member ID: <input type="text" id="memberInput" /></span>
+		<span id="member">Member ID: <input type="text" id="memberInput" /></span></br>
+		<span id="error"></span>
 	</div>
 
 	<div id="header">
