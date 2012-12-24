@@ -1,6 +1,10 @@
 #header {
-	height: 150px;
-	padding: 10px;
+	height: 50px;
+	padding: 20px 40px 10px 40px;
+}
+
+#header h1 {
+	float: left;
 }
 
 #nav {
@@ -10,13 +14,27 @@
 #nav li {
 	float: left;
 	display: inline;
+	margin-left: 20px;
 }
 
 #sidebar {
 	width: 200px;
+	float: left;
 }
+
+#sidebar span {
+	display: block;
+	margin: 0 auto;
+}
+
+#sidebar.ui-state-default {
+	height: 1.9em;
+	line-height: 1.9em;
+	padding: 0 0.6em;
+} 
 
 #calendar {
 	width: 1000px;
+	float: left;
 }
 
