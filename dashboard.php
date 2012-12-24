@@ -54,7 +54,7 @@
 				},
 				buttons: {
 					"Create": function() {
-						var member_id = $('#member').val();
+						var member_id = $('#memberInput').val();
 						alert("ID: " + member_id);
 
 						//Submit new reservation via AJAX
