@@ -100,40 +100,48 @@
 
 				//When an event is dragged and dropped, submit change to database
 				eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
-					var event_id = event['id'];
-					
-					if (eventIsValid(event)) {
-						var start = new Date(event['start']);
-						alert(start);
-						var end = new Date(event['end']);
+					moveReservation(event, revertFunc);
+				},
 
-						//Use AJAX call to submit changes to the event without refreshing the paeg
-						$.ajax({
-							url: 'php/movereservation.php',
-							data: {
-								event_id: event_id,
-								startday: start.getDate(),
-								startmonth: (start.getMonth() + 1),
-								startyear: start.getFullYear(),
-								starthour: start.getHours(),
-								startmin: (start.getMinutes()<10?'0':'') + start.getMinutes(),
-								endday: end.getDate(),
-								endmonth: (end.getMonth() + 1),
-								endyear: end.getFullYear(),
-								endhour: end.getHours(),
-								endmin: (end.getMinutes()<10?'0':'') + end.getMinutes()
-							},
-							error: function(jqXHR, textStatus, errorThrown) {
-								alert('There was a problem moving the reservation: ' + errorThrown);
-							}
-						});
-					} else {
-						alert("The reservation can't be moved there.");
-						revertFunc();
-					}
+				//When an event is resized, submit change to database
+				eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+					moveReservation(event, revertFunc);
 				}
 			});
 		})
+
+		function moveReservation(event, revertFunc) {
+			var event_id = event['id'];
+			
+			if (eventIsValid(event)) {
+				var start = new Date(event['start']);
+				var end = new Date(event['end']);
+
+				//Use AJAX call to submit changes to the event without refreshing the paeg
+				$.ajax({
+					url: 'php/movereservation.php',
+					data: {
+						event_id: event_id,
+						startday: start.getDate(),
+						startmonth: (start.getMonth() + 1),
+						startyear: start.getFullYear(),
+						starthour: start.getHours(),
+						startmin: (start.getMinutes()<10?'0':'') + start.getMinutes(),
+						endday: end.getDate(),
+						endmonth: (end.getMonth() + 1),
+						endyear: end.getFullYear(),
+						endhour: end.getHours(),
+						endmin: (end.getMinutes()<10?'0':'') + end.getMinutes()
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert('There was a problem moving the reservation: ' + errorThrown);
+					}
+				});
+			} else {
+				alert("The reservation can't be moved there.");
+				revertFunc();
+			}
+		}
 
 		function eventIsValid(event) {
 			//Initialize constraints for the specific club
@@ -193,7 +201,7 @@
 
 	<div id="header">
 		<!-- LOGO -->
-		<h1>Logo</h1>
+		<h1>CloudCourt</h1>
 
 		<!-- NAV -->
 		<ul id="nav">
