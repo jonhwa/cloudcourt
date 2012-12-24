@@ -41,7 +41,24 @@
 	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#calendar').fullCalendar({
+			//Initialize dialog
+			$('#dialog').dialog({ 
+				autoOpen: false,
+				resizable: false,
+				title: 'Create Reservation',
+				buttons: {
+					"Create": function() {
+						//Submit new reservation via AJAX
+						$(this).dialog('close');
+					},
+					Cancel: function() {
+						$(this).dialog('close');
+					}
+				}
+			});
+
+			//Build calendar
+			var calendar = $('#calendar').fullCalendar({
 				//Set defaults
 				theme: true,
 				defaultView: 'agendaWeek',
@@ -97,6 +114,16 @@
 							callback(events);
 						}
 					});
+				},
+				
+				//When a user selects a slot on the calendar, ask to create an event
+				selectable: true,
+				selectHelper: true,
+				select: function(startDate, endDate) {
+					var start = new Date(startDate);
+					var end = new Date(endDate);
+
+					$('#dialog').dialog("open");
 				},
 
 				//When an event is dragged and dropped, submit change to database
@@ -199,6 +226,12 @@
 	<input type="hidden" id="close" value="<?php echo $close ?>"/>
 	<input type="hidden" id="resMin" value="<?php echo $resMin ?>"/>
 	<input type="hidden" id="resMax" value="<?php echo $resMax ?>"/>
+	
+	<!-- Div that holds information for the dialog box -->
+	<div id="dialog">
+		<span id="when"></span></br>
+		<span id="what"></span>
+	</div>
 
 	<div id="header">
 		<!-- LOGO -->
@@ -214,7 +247,7 @@
 	<div id="main">
 		<!-- COURT SCHEDULE -->
 		<div id="body">
-			<div id="sidebar"><span class="button">book court</span></div>
+			<div id="sidebar"><span class="button" onclick="">Book Court</span></div>
 			<div id="calendar"></div>
 		</div>
 
