@@ -38,10 +38,10 @@
 
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-	<script type="text/javascript" src="js/fullcalendar.min.js"></script>
+	<script type="text/javascript" src="js/fullcalendar.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var start, end;
+			var calendar, start, end;
 
 			//Initialize dialog
 			$('#dialog').dialog({ 
@@ -92,7 +92,7 @@
 			});
 
 			//Build calendar
-			var calendar = $('#calendar').fullCalendar({
+			calendar = $('#calendar').fullCalendar({
 				//Set defaults
 				theme: true,
 				defaultView: 'agendaWeek',
