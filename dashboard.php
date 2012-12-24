@@ -55,9 +55,10 @@
 				buttons: {
 					"Create": function() {
 						var member_id = $('#member').val();
+						alert("ID: " + member_id);
 
 						//Submit new reservation via AJAX
-						$.ajax({
+						/*$.ajax({
 							url: 'php/createreservation.php',
 							dataType: 'xml',
 							data: {
@@ -101,7 +102,7 @@
 									$(this).dialog('close');
 								}
 							}
-						});
+						});*/
 					},
 					Cancel: function() {
 						$(this).dialog('close');
