@@ -157,8 +157,8 @@
 					start = new Date(startDate);
 					end = new Date(endDate);
 
-					var string = $.fullCalendar.formatDate(start, "MMM d h:mmtt");
-					string += " - " + $fullCalendar.formatDate(end, "h:mmtt");
+					var string = calendar.formatDate(start, "MMM d h:mmtt");
+					string += " - " + calendar.formatDate(end, "h:mmtt");
 					$('#when').text('When: ' + string);
 
 					$('#dialog').dialog("open");
