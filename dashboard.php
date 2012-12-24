@@ -36,11 +36,13 @@
 	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
 
-	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
-	<script type="text/javascript" src="js/fullcalendar.js"></script>
+	<script type="text/javascript" src="js/fullcalendar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			var calendar, start, end;
+
 			//Initialize dialog
 			$('#dialog').dialog({ 
 				autoOpen: false,
@@ -48,17 +50,49 @@
 				title: 'Create Reservation',
 				buttons: {
 					"Create": function() {
-						//Submit new reservation via AJAX
+						var member_id = $('#member').val();
+						if (member_id == '') {
+							calendar.fullCalendar('unselect');
+						} else {
+							//Submit new reservation via AJAX
+							$.ajax({
+								url: '',
+								dataType: 'xml',
+								data: {
+
+								},
+								error: function(jqXHR, textStatus, errorThrown) {
+									alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
+								},
+								success: function(data) {
+									
+								}
+							});
+
+							calendar.fullCalendar('renderEvent',
+								{
+									id: '',
+									title: '',
+									start: '',
+									end: '',
+									backgroundColor: '#67B021',
+									borderColor: '#327e04'
+								},
+								true //make the event "stick" 
+							);
+						}
+
 						$(this).dialog('close');
 					},
 					Cancel: function() {
+						calendar.fullCalendar('unselect');
 						$(this).dialog('close');
 					}
 				}
 			});
 
 			//Build calendar
-			var calendar = $('#calendar').fullCalendar({
+			calendar = $('#calendar').fullCalendar({
 				//Set defaults
 				theme: true,
 				defaultView: 'agendaWeek',
@@ -120,8 +154,12 @@
 				selectable: true,
 				selectHelper: true,
 				select: function(startDate, endDate) {
-					var start = new Date(startDate);
-					var end = new Date(endDate);
+					start = new Date(startDate);
+					end = new Date(endDate);
+
+					var string = $.fullCalendar.formatDate(start, "MMM d h:mmtt");
+					string += " - " + $fullCalendar.formatDate(end, "h:mmtt");
+					$('#when').text('When: ' + string);
 
 					$('#dialog').dialog("open");
 				},
@@ -142,8 +180,8 @@
 			var event_id = event['id'];
 			
 			if (eventIsValid(event)) {
-				var start = new Date(event['start']);
-				var end = new Date(event['end']);
+				start = new Date(event['start']);
+				end = new Date(event['end']);
 
 				//Use AJAX call to submit changes to the event without refreshing the paeg
 				$.ajax({
@@ -230,7 +268,7 @@
 	<!-- Div that holds information for the dialog box -->
 	<div id="dialog">
 		<span id="when"></span></br>
-		<span id="what"></span>
+		<span id="member">Member ID: <input type="text" id="memberInput" /></span>
 	</div>
 
 	<div id="header">
