@@ -43,7 +43,7 @@ if (!is_int(intval($member_id))) {
 
 		$name = getName($member_id);
 		echo '<id>'.$event_id.'</id><name>'.$name.'</name>';*/
-		echo '<error>Not a real error...</error>';
+		echo '<error>Start: '.$start.' end: '.$end.'</error>';
 	}
 }
 echo '</data>';
