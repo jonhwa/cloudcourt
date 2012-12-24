@@ -46,5 +46,5 @@ if (!is_int(intval($member_id))) {
 	}
 }
 echo '</data>';*/
-echo '<error>hello</error>';
+echo '<error>hello '.$_GET['member_id'].'</error>';
 ?>
