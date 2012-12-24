@@ -50,7 +50,7 @@
 				minWidth: 400,
 				title: 'Create Reservation',
 				close: function(event, ui) {
-					//calendar.fullCalendar('unselect');
+					calendar.fullCalendar('unselect');
 				},
 				buttons: {
 					"Create": function() {

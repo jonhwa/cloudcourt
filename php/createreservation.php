@@ -1,5 +1,5 @@
 <?php
-/*require('connect.php');
+require('connect.php');
 require('functions.php');
 
 $member_id = $_GET['member_id'];
@@ -45,6 +45,5 @@ if (!is_int(intval($member_id))) {
 		echo '<id>'.$event_id.'</id><name>'.$name.'</name>';
 	}
 }
-echo '</data>';*/
-echo '<error>hello '.$_GET['member_id'].'</error>';
+echo '</data>';
 ?>
