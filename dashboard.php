@@ -41,7 +41,7 @@
 	<script type="text/javascript" src="js/fullcalendar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var calendar, start, end;
+			var start, end;
 
 			//Initialize dialog
 			$('#dialog').dialog({ 
@@ -65,7 +65,7 @@
 									alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 								},
 								success: function(data) {
-									
+
 								}
 							});
 
@@ -92,7 +92,7 @@
 			});
 
 			//Build calendar
-			calendar = $('#calendar').fullCalendar({
+			var calendar = $('#calendar').fullCalendar({
 				//Set defaults
 				theme: true,
 				defaultView: 'agendaWeek',
