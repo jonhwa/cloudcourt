@@ -34,6 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="css/960_24_col.css"/>
 	<link rel="stylesheet" type="text/css" href="css/south-street.css"/>
 	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css"/>
+	<link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
 
 	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -212,8 +213,9 @@
 
 	<div id="main">
 		<!-- COURT SCHEDULE -->
-		<div id="schedule">
-			<div id="calendar" style="width: 1100px;"></div>
+		<div id="body">
+			<div id="sidebar"><span class="ui-state-default ui-corner-left ui-corner-right">book court</span></div>
+			<div id="calendar"></div>
 		</div>
 
 		<!-- RANKING LADDERS -->

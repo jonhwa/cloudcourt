@@ -1,0 +1,22 @@
+#header {
+	height: 150px;
+	padding: 10px;
+}
+
+#nav {
+	float: right;
+}
+
+#nav li {
+	float: left;
+	display: inline;
+}
+
+#sidebar {
+	width: 200px;
+}
+
+#calendar {
+	width: 1000px;
+}
+
