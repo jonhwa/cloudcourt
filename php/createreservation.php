@@ -42,7 +42,6 @@ if (!is_int(intval($member_id))) {
 
 		$name = getName($member_id);
 		echo '<id>'.$id.'</id><name>'.$name.'</name>';
-		echo '<error>Start: '.$start.' end: '.$end.'</error>';
 	}
 }
 echo '</data>';
