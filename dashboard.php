@@ -85,9 +85,9 @@
 								} else {
 									var id = $(data).find('id').text();
 									var name = $(data).find('name').text();
-									var startTime = $.fullCalendar.formatDate(start, "YYYY-MM-dd'T'hh:mm:ssZ");
+									var startTime = $.fullCalendar.formatDate(start, "yyyy-MM-dd'T'hh:mm:ssZ");
 									alert(startTime);
-									var endTime = $.fullCalendar.formatDate(end, "YYYY-MM-dd'T'hh:mm:ssZ");
+									var endTime = $.fullCalendar.formatDate(end, "yyyy-MM-dd'T'hh:mm:ssZ");
 									calendar.fullCalendar('renderEvent',
 										{
 											id: id,
