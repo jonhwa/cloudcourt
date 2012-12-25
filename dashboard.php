@@ -77,7 +77,6 @@
 								alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 							},
 							success: function(data) {
-								//alert("success");
 								var error = $(data).find('error');
 								if (error.length > 0) {
 									var error = $(data).find('error').text();
@@ -111,7 +110,10 @@
 
 			//Initialize detail tooltips for reservation mouseover
 			$(document).tooltip({
-				
+				items: "[event]",
+				content: function() {
+					
+				}
 			});
 
 			//Build calendar
