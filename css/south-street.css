@@ -1,6 +1,6 @@
-/*! jQuery UI - v1.9.2 - 2012-12-23
+/*! jQuery UI - v1.9.2 - 2012-12-24
 * http://jqueryui.com
-* Includes: jquery.ui.core.css, jquery.ui.resizable.css, jquery.ui.button.css, jquery.ui.dialog.css
+* Includes: jquery.ui.core.css, jquery.ui.resizable.css, jquery.ui.button.css, jquery.ui.dialog.css, jquery.ui.tooltip.css
 * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=segoe%20ui%2CArial%2Csans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=ece8da&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=100&borderColorHeader=d4ccb0&fcHeader=433f38&iconColorHeader=847e71&bgColorContent=f5f3e5&bgTextureContent=04_highlight_hard.png&bgImgOpacityContent=100&borderColorContent=dfd9c3&fcContent=312e25&iconColorContent=808080&bgColorDefault=459e00&bgTextureDefault=04_highlight_hard.png&bgImgOpacityDefault=15&borderColorDefault=327E04&fcDefault=ffffff&iconColorDefault=eeeeee&bgColorHover=67b021&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=25&borderColorHover=327E04&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=fafaf4&bgTextureActive=04_highlight_hard.png&bgImgOpacityActive=100&borderColorActive=d4ccb0&fcActive=459e00&iconColorActive=8DC262&bgColorHighlight=fcf0ba&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=e8e1b5&fcHighlight=363636&iconColorHighlight=8DC262&bgColorError=ffedad&bgTextureError=03_highlight_soft.png&bgImgOpacityError=95&borderColorError=e3a345&fcError=cd5c0a&iconColorError=cd0a0a&bgColorOverlay=2b2922&bgTextureOverlay=05_inset_soft.png&bgImgOpacityOverlay=15&opacityOverlay=90&bgColorShadow=cccccc&bgTextureShadow=04_highlight_hard.png&bgImgOpacityShadow=95&opacityShadow=20&thicknessShadow=12px&offsetTopShadow=-12px&offsetLeftShadow=-12px&cornerRadiusShadow=10px
 * Copyright (c) 2012 jQuery Foundation and other contributors Licensed MIT */
 
@@ -84,6 +84,19 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
 .ui-draggable .ui-dialog-titlebar { cursor: move; }
+.ui-tooltip {
+	padding: 8px;
+	position: absolute;
+	z-index: 9999;
+	max-width: 300px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+}
+/* Fades and background-images don't work well together in IE6, drop the image */
+* html .ui-tooltip {
+	background-image: none;
+}
+body .ui-tooltip { border-width: 2px; }
 
 /* Component containers
 ----------------------------------*/

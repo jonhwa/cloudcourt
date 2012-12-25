@@ -35,14 +35,13 @@ if (!is_int(intval($member_id))) {
 		$start = $startYear.'-'.$startMonth.'-'.$startDay.' '.$startHour.':'.$startMin.':00';
 		$end = $endYear.'-'.$endMonth.'-'.$endDay.' '.$endHour.':'.$endMin.':00';
 
-		/*$query = "INSERT INTO courtschedule (club_id, start_time, end_time, member_id1) VALUES ('$club_id', '$start', '$end', '$member_id')":
+		$query = "INSERT INTO courtschedule (club_id, start_time, end_time, member_id1) VALUES ('$club_id', '$start', '$end', '$member_id') RETURNING schedule_id":
 		$result = pg_query($query);
-
-		//Get the ID of the inserted reservation and return it
-		$event_id = pg_last_oid($result);
+		$row = pg_fetch_assoc($result);
+		$id = $row[0];
 
 		$name = getName($member_id);
-		echo '<id>'.$event_id.'</id><name>'.$name.'</name>';*/
+		echo '<id>'.$id.'</id><name>'.$name.'</name>';*/
 		echo '<error>Start: '.$start.' end: '.$end.'</error>';
 	}
 }

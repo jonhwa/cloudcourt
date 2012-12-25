@@ -109,6 +109,11 @@
 				}
 			});
 
+			//Initialize detail tooltips for reservation mouseover
+			$(document).tooltip({
+
+			});
+
 			//Build calendar
 			calendar = $('#calendar').fullCalendar({
 				//Set defaults
@@ -181,6 +186,12 @@
 					$('#when').text('When: ' + string);
 
 					$('#dialog').dialog("open");
+				},
+
+				//When an event is clicked, go to a new page for editing the event
+				eventClick: function(event) {
+					var event_id = event['id'];
+					window.location.href = 'editreservation.php?id=' + event_id;
 				},
 
 				//When an event is dragged and dropped, submit change to database
