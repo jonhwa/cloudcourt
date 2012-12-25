@@ -41,7 +41,7 @@ if (!is_int(intval($member_id))) {
 		$id = $row[0];
 
 		$name = getName($member_id);
-		echo '<id>'.$id.'</id><name>'.$name.'</name>';*/
+		echo '<id>'.$id.'</id><name>'.$name.'</name>';
 		echo '<error>Start: '.$start.' end: '.$end.'</error>';
 	}
 }
