@@ -35,7 +35,7 @@ if (!is_int(intval($member_id))) {
 		$start = $startYear.'-'.$startMonth.'-'.$startDay.' '.$startHour.':'.$startMin.':00';
 		$end = $endYear.'-'.$endMonth.'-'.$endDay.' '.$endHour.':'.$endMin.':00';
 
-		$query = "INSERT INTO courtschedule (club_id, start_time, end_time, member_id1) VALUES ('$club_id', '$start', '$end', '$member_id') RETURNING schedule_id":
+		$query = "INSERT INTO courtschedule (club_id, start_time, end_time, member_id1) VALUES ('$club_id', '$start', '$end', '$member_id') RETURNING schedule_id";
 		$result = pg_query($query);
 		$row = pg_fetch_assoc($result);
 		$id = $row[0];

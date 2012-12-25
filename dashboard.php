@@ -111,7 +111,7 @@
 
 			//Initialize detail tooltips for reservation mouseover
 			$(document).tooltip({
-
+				
 			});
 
 			//Build calendar
