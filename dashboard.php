@@ -79,7 +79,8 @@
 							success: function(data) {
 								alert("success");
 								var error = $(data).find('error');
-								if (error != null) {
+								if (error.length > 0) {
+									alert("error");
 									var error = $(data).find('error').text();
 									$('#error').text(error);
 								} else {
