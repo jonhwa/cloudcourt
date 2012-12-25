@@ -77,6 +77,7 @@
 								alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 							},
 							success: function(data) {
+								alert("success");
 								var error = $(data).find('error');
 								if (error != null) {
 									var error = $(data).find('error').text();
@@ -86,7 +87,7 @@
 									var name = $(data).find('name').text();
 									var startTime = $.fullCalendar.formatDate(start, "YYYY-MM-dd'T'hh:mm:ssZ");
 									var endTime = $.fullCalendar.formatDate(end, "YYYY-MM-dd'T'hh:mm:ssZ");
-									alert("success");
+									alert("another success");
 									calendar.fullCalendar('renderEvent',
 										{
 											id: id,
@@ -98,7 +99,7 @@
 										},
 										true //make the event "stick" 
 									);
-									alert("another success");
+									alert("final success");
 									$(this).dialog('close');
 								}
 							}
