@@ -86,7 +86,6 @@
 									var id = $(data).find('id').text();
 									var name = $(data).find('name').text();
 									var startTime = $.fullCalendar.formatDate(start, "yyyy-MM-dd'T'HH:mm:ssZ");
-									alert(startTime);
 									var endTime = $.fullCalendar.formatDate(end, "yyyy-MM-dd'T'HH:mm:ssZ");
 									calendar.fullCalendar('renderEvent',
 										{
@@ -99,7 +98,7 @@
 										},
 										true //make the event "stick" 
 									);
-									$(this).dialog('close');
+									$('#dialog').dialog('close');
 								}
 							}
 						});
