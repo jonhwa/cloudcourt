@@ -136,7 +136,9 @@
 							string += " - " + $.fullCalendar.formatDate(end, "h:mmtt");
 
 							var content = '<p>When: ' + string + '</p>';
-							content += '<p>What: Member reservation for ' + member + '</p>'
+							content += '<p>What: Member reservation for ' + member + '</p>';
+
+							return content;
 						}
 					});
 				}
@@ -333,6 +335,7 @@
 	<div id="header">
 		<!-- LOGO -->
 		<h1>CloudCourt</h1>
+		<div event="event" id="9">Test div</div>
 
 		<!-- NAV -->
 		<ul id="nav">
