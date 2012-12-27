@@ -1,5 +1,6 @@
 <?php
 require('connect.php');
+require('functions.php');
 
 $event_id = $_GET['id'];
 $query = "SELECT * FROM courtschedule WHERE schedule_id='$event_id'";
