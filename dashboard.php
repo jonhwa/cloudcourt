@@ -112,7 +112,31 @@
 			$(document).tooltip({
 				items: "[event]",
 				content: function() {
-					
+					var event_id = $(this).attr('id');
+					$.ajax({
+						url: 'php/reservationdetails.php',
+						dataType: 'xml',
+						data: {
+							id: event_id
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
+						},
+						success: function(data) {
+							var start = $(data).find('start').text();
+							var end = $(data).find('end').text();
+							var member = $(data).find('member').text();
+							
+							var start = new Date(start);
+							var end = new Date(end);
+
+							var string = $.fullCalendar.formatDate(start, "MMM d h:mmtt");
+							string += " - " + $.fullCalendar.formatDate(end, "h:mmtt");
+
+							var content = '<p>When: ' + string + '</p>';
+							content += '<p>What: Member reservation for ' + member + '</p>'
+						}
+					});
 				}
 			});
 
