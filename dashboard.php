@@ -112,6 +112,7 @@
 			$(document).tooltip({
 				items: "[event]",
 				content: function() {
+					alert("entered");
 					var event_id = $(this).attr('id');
 					$.ajax({
 						url: 'php/reservationdetails.php',
@@ -123,6 +124,7 @@
 							alert('AJAX call failed: ' + textStatus + ' ' + errorThrown);
 						},
 						success: function(data) {
+							alert('Success');
 							var start = $(data).find('start').text();
 							var end = $(data).find('end').text();
 							var member = $(data).find('member').text();
