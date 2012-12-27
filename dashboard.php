@@ -125,7 +125,8 @@
 						},
 						success: function(data) {
 							alert('Success');
-							var start = $(data).find('start').text();
+							return "<p>This is a tooltip.</p>";
+							/*var start = $(data).find('start').text();
 							var end = $(data).find('end').text();
 							var member = $(data).find('member').text();
 							
@@ -138,7 +139,7 @@
 							var content = '<p>When: ' + string + '</p>';
 							content += '<p>What: Member reservation for ' + member + '</p>';
 
-							return content;
+							return content;*/
 						}
 					});
 				}
