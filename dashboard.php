@@ -109,7 +109,7 @@
 			});
 
 			//Initialize detail tooltips for reservation mouseover
-			$(document).tooltip({
+			/*$(document).tooltip({
 				items: "[event]",
 				content: function() {
 					alert("entered");
@@ -126,7 +126,7 @@
 						success: function(data) {
 							alert('Success');
 							return "<p>This is a tooltip.</p>";
-							/*var start = $(data).find('start').text();
+							var start = $(data).find('start').text();
 							var end = $(data).find('end').text();
 							var member = $(data).find('member').text();
 							
@@ -139,11 +139,11 @@
 							var content = '<p>When: ' + string + '</p>';
 							content += '<p>What: Member reservation for ' + member + '</p>';
 
-							return content;*/
+							return content;
 						}
 					});
 				}
-			});
+			});*/
 
 			//Build calendar
 			calendar = $('#calendar').fullCalendar({
@@ -336,7 +336,7 @@
 	<div id="header">
 		<!-- LOGO -->
 		<h1>CloudCourt</h1>
-		<div event="event" id="9">Test div</div>
+		<!-- <div event="event" id="9">Test div</div> -->
 
 		<!-- NAV -->
 		<ul id="nav">
